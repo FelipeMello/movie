@@ -24,6 +24,11 @@ public class MovieService {
     return movieRepository.findAll();
   }
 
+  public List<Movie> updateMovies(List<Movie> movies){
+    //BUGFIX it's replacing instead of updating.
+    return movieRepository.saveAll(movies);
+  }
+
   public void createMovie(List<Movie> movie){
     movieRepository.saveAll(movie);
   }

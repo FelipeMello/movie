@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "movies")
+@Table(name = "movies", schema="movies")
 @Getter
 @Setter
 public class Movie implements Serializable {
@@ -21,15 +21,15 @@ public class Movie implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", columnDefinition = "char")
+    @Column(name = "name", columnDefinition = "VARCHAR")
     private String name;
 
-    @Column(name = "type", columnDefinition = "char")
+    @Column(name = "type", columnDefinition = "VARCHAR")
     private String type;
 
-    @Column(name = "summary",columnDefinition = "char")
+    @Column(name = "summary",columnDefinition = "VARCHAR")
     private String summary;
 
-    @Column(name = "year", columnDefinition = "char")
+    @Column(name = "year", columnDefinition = "VARCHAR")
     private int year;
 }
