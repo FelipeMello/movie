@@ -15,23 +15,37 @@ public class MovieService {
   public MovieService(MovieRepository movieRepository) {
     this.movieRepository = movieRepository;
   }
-//
-//  public List<Movie> getMovieByType(String type){
-//    return movieRepository.findB
-//  }
 
   public List<Movie> getAll(){
     return movieRepository.findAll();
   }
 
   public List<Movie> updateMovies(List<Movie> movies){
-    //BUGFIX it's replacing instead of updating.
+    //TODO BUGFIX it's replacing instead of updating.
     return movieRepository.saveAll(movies);
   }
 
-  public void createMovie(List<Movie> movie){
-    movieRepository.saveAll(movie);
+  public void createMovie(List<Movie> movies){
+
+    movieRepository.saveAll(movies);
   }
 
+  public boolean validateMovies(List<Movie> movies){
+
+
+
+    return true;
+  };
+
+//  public boolean validateMovie(Movie movie){
+//    if(movie.getId().is)
+//
+//    return true;
+//  }
+
+
+  public void deleteById(Long id) {
+    movieRepository.deleteById(id);
+  }
 
 }

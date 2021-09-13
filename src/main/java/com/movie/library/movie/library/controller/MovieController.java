@@ -5,6 +5,7 @@ import com.movie.library.movie.library.service.MovieService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,4 +41,14 @@ public class MovieController {
         List<Movie> movies = movieService.updateMovies(movieData);
         return new ResponseEntity(movies, HttpStatus.ACCEPTED);
     }
+
+
+
+    @DeleteMapping
+    public ResponseEntity<?> deleteMovie(@RequestParam Long id){
+        movieService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    //TODO create controller for thumbs up and thumbs down.
 }
