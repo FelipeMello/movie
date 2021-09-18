@@ -26,7 +26,6 @@ public class MovieService {
   }
 
   public void createMovie(List<Movie> movies){
-
     movieRepository.saveAll(movies);
   }
 

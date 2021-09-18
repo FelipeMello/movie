@@ -1,8 +1,15 @@
 package com.movie.library.movie.library.model.movies;
 
+import static com.movie.library.movie.library.utils.Constants.ZONED_DATE_TIME_FORMAT;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
 import com.movie.library.movie.library.model.movies.rating.Rating;
+import com.movie.library.movie.library.utils.ZonedDateTimeDeserializer;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,7 +19,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -20,9 +26,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "movies")
+@Table(name = "movies", schema = "movies")
 @Getter
 @Setter
+//@JsonFormat(pattern = ZONED_DATE_TIME_FORMAT)
+//Specify the format you want: "yyyy-MM-dd'T'HH:mm:ss.SSS"
 public class Movie implements Serializable {
 
     @Id
@@ -42,6 +50,8 @@ public class Movie implements Serializable {
     private String summary;
 
     @Column(name = "date")
+//    @JsonSerialize(using = ZonedDateTimeSerializer.class)
+//    @JsonDeserialize(using = ZonedDateTimeDeserializer.class)
     private ZonedDateTime date;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
