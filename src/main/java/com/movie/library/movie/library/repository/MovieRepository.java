@@ -1,6 +1,6 @@
 package com.movie.library.movie.library.repository;
 
-import com.movie.library.movie.library.model.movies.Movie;
+import com.movie.library.movie.library.model.movies.movie.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

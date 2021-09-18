@@ -1,4 +1,4 @@
-package com.movie.library.movie.library.model.movies;
+package com.movie.library.movie.library.model.movies.movie;
 
 import java.io.Serializable;
 import lombok.Getter;

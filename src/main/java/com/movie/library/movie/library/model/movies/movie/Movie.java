@@ -1,4 +1,4 @@
-package com.movie.library.movie.library.model.movies;
+package com.movie.library.movie.library.model.movies.movie;
 
 import static com.movie.library.movie.library.utils.Constants.ZONED_DATE_TIME_FORMAT;
 
@@ -50,13 +50,9 @@ public class Movie implements Serializable {
     private String summary;
 
     @Column(name = "date")
-//    @JsonSerialize(using = ZonedDateTimeSerializer.class)
-//    @JsonDeserialize(using = ZonedDateTimeDeserializer.class)
     private ZonedDateTime date;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "rating_id")
-    private Rating rating;
+
 
 
 }

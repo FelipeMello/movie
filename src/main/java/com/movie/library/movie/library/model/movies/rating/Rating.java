@@ -1,6 +1,6 @@
 package com.movie.library.movie.library.model.movies.rating;
 
-import com.movie.library.movie.library.model.movies.Movie;
+import com.movie.library.movie.library.model.movies.movie.Movie;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +27,7 @@ public class Rating implements Serializable {
   private Long id;
 
   @JoinColumn(name="movie_id")
-  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy ="rating" )
+  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL )
   private Movie movie_id;
 
   @Column(name="thumbs_up")

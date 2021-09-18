@@ -1,6 +1,6 @@
 package com.movie.library.movie.library.controller;
 
-import com.movie.library.movie.library.model.movies.Movie;
+import com.movie.library.movie.library.model.movies.movie.Movie;
 import com.movie.library.movie.library.service.MovieService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -35,7 +35,6 @@ public class MovieController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
-
     @PutMapping()
     public ResponseEntity<List<Movie>> updateMovies(@RequestBody List<Movie> movieData){
         List<Movie> movies = movieService.updateMovies(movieData);
@@ -49,6 +48,4 @@ public class MovieController {
         movieService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
-
-    //TODO create controller for thumbs up and thumbs down.
 }
