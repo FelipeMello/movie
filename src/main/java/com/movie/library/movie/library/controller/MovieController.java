@@ -1,6 +1,7 @@
 package com.movie.library.movie.library.controller;
 
 import com.movie.library.movie.library.model.movies.movie.Movie;
+import com.movie.library.movie.library.model.movies.movie.MovieDto;
 import com.movie.library.movie.library.service.MovieService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -36,8 +37,8 @@ public class MovieController {
     }
 
     @PutMapping()
-    public ResponseEntity<List<Movie>> updateMovies(@RequestBody List<Movie> movieData){
-        List<Movie> movies = movieService.updateMovies(movieData);
+    public ResponseEntity<Movie> updateMovie(@RequestBody MovieDto movieData){
+        Movie movies = movieService.updateMovie(movieData);
         return new ResponseEntity(movies, HttpStatus.ACCEPTED);
     }
 

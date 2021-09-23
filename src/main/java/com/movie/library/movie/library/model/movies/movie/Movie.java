@@ -29,8 +29,6 @@ import lombok.Setter;
 @Table(name = "movies", schema = "movies")
 @Getter
 @Setter
-//@JsonFormat(pattern = ZONED_DATE_TIME_FORMAT)
-//Specify the format you want: "yyyy-MM-dd'T'HH:mm:ss.SSS"
 public class Movie implements Serializable {
 
     @Id

@@ -16,4 +16,13 @@ public class RatingService {
     return ratingRepository.saveAll(ratings);
   }
 
+  public List<Rating> updateRatings(List<Rating> ratings) {
+    return ratingRepository.saveAll(ratings);
+  }
+
+  public void deleteById(Long id) {
+    ratingRepository.deleteById(id);
+  }
+
+
 }
